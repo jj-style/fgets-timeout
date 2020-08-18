@@ -1,7 +1,9 @@
 #include <stdio.h>
+
+int tmdout; // timed out. 1 if timed out, 0 otherwise.
+
 /*
-    Wrapper around fgets to provide a timeout option to exit the program if 
-    the blocking call to fgets does not read within the time frame.
+    Wrapper around fgets to provide a timeout option to end the blocking call to fgets if it does not read within the time frame.
 
     Parameters:
         char *buffer    - buffer to read input into, if NULL then memory will be allocated at the given size+1
@@ -15,7 +17,7 @@
                             If buffer provided through malloc, remember to free it up.
 
     Note:
-        Program exits with status code 1 if the timeout is elapsed.
+        Sets global variable tmdout to 1 if it timed out, 0 otherwise.
         Existing alarm and signal handler for alarm are re-stored (with the correct offset) if the user enters within the timeframe.
     
 */
