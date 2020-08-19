@@ -7,8 +7,8 @@
 
 #include "timed_fgets.h"
 
-
 pthread_t thread;
+int tmdout;
 
 // signal handler for SIGALRM
 void _alarm_timeup(int sigint) {

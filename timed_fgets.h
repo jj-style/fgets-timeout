@@ -1,6 +1,8 @@
+#ifndef _TIMED_FGETS_GUARD
+#define _TIMED_FGETS_GUARD
 #include <stdio.h>
 
-int tmdout; // timed out. 1 if timed out, 0 otherwise.
+extern int tmdout; // timed out. 1 if timed out, 0 otherwise.
 
 /*
     Wrapper around fgets to provide a timeout option to end the blocking call to fgets if it does not read within the time frame.
@@ -22,3 +24,4 @@ int tmdout; // timed out. 1 if timed out, 0 otherwise.
     
 */
 char *timed_fgets(char *buffer, int size, FILE *stream, int seconds, char *prompt);
+#endif
